@@ -37,7 +37,7 @@ function App() {
     allWeeks.add(weekLabel);
 
     // Total for Bar Chart
-    weeklyTotals[weekLabel] = (weeklyTotals[weekLabel] || 0) + d.amount;
+    weeklyTotals[weekLabel] = (weeklyTotals[weekLabel] || 0) +(parseFloat(d.amount) || 0);
 
     // Data for Matrix
     if (!donorMatrix[cleanEmail]) donorMatrix[cleanEmail] = {};
