@@ -28,6 +28,7 @@ function App() {
   const allWeeks = new Set();
 
   donations.forEach(d => {
+    const cleanEmail = d.email.toLowerCase().trim();
     const date = new Date(d.timestamp);
     
     // getISOWeek explicitly starts the week on Monday
@@ -39,8 +40,8 @@ function App() {
     weeklyTotals[weekLabel] = (weeklyTotals[weekLabel] || 0) + d.amount;
 
     // Data for Matrix
-    if (!donorMatrix[d.email]) donorMatrix[d.email] = {};
-    donorMatrix[d.email][weekLabel] = "XX";
+    if (!donorMatrix[cleanEmail]) donorMatrix[cleanEmail] = {};
+    donorMatrix[cleanEmail][weekLabel] = "XX";
   });
 // Calculate total revenue for the summary line
 const totalRevenue = donations.reduce((acc, d) => acc + (parseFloat(d.amount) || 0), 0);
