@@ -1,0 +1,9 @@
+{
+  "name": "amanah-dashboard-monolith",
+  "version": "1.0.0",
+  "scripts": {
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "build": "cd client && npm run build",
+    "start": "cd server && node server.js"
+  }
+}
